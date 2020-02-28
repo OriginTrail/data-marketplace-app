@@ -1,0 +1,105 @@
+.datasets-on-sale {
+  padding-top: 40px;
+
+  .price-wrapper {
+    display: flex;
+    line-height: 2.5;
+  }
+
+  .price-in-usd-upload {
+    margin-top: 18px;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #131415;
+  }
+  .form-wrapper {
+
+    .el-input-number__decrease {
+      margin-left: 2px;
+    }
+
+    width: 100%;
+
+    .el-select {
+      width: 100%;
+    }
+  }
+
+  .box-3 {
+    width: 100%;
+    height: 160px;
+    background-color: #2b2c2d;
+    border: solid 1px #acacac;
+    overflow: auto;
+    margin-bottom: 30px;
+    color: #f6f6f6;
+    border-radius: 4px;
+
+    .hljs {
+      color: #f6f6f6;
+      background-color: #2b2c2d;
+      text-align: left;
+    }
+  }
+
+  .el-form-item__label {
+    width: 100%;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+  .el-input-number {
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 10px;
+  }
+
+  .terms {
+    margin-top: 30px;
+  }
+
+  .put-on-sale-button {
+    width: 100%;
+  }
+
+  .back-button {
+    display: flex;
+    margin-bottom: 28px;
+  }
+
+  .terms-and-conditions-upload-dataset {
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: solid 1px #136bc8;
+    background-color: #e6f1fc;
+    margin: 24px 0 31px 0;
+    p {
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: #136bc8;
+      text-align: left;
+    }
+
+     .info-wrapp-upload {
+       display: inline-block;
+       width: 15%;
+     }
+
+    .info-text-wrapp {
+      display: inline-block;
+      width: 84%;
+    }
+  }
+}
+
+

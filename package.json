@@ -1,0 +1,32 @@
+{
+  "name": "ot-managment-interface",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "marketplace": "vue-cli-service serve"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "element-ui": "^2.4.11",
+    "ethjs": "^0.4.0",
+    "highlight.js": "^9.18.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "vue": "^2.5.17",
+    "vue-data-tables": "^3.4.2",
+    "vue-highlight.js": "^2.2.0",
+    "vue-jazzicon": "^0.1.3",
+    "vue-socket.io": "^3.0.7"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
+  }
+}

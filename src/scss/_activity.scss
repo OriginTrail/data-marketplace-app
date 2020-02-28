@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+
+.activity-wrapper {
+  margin-bottom: 10%;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+  .activity-inside-row-wrapper {
+    display: inherit;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #8080802b;
+    background-color: white;
+    padding: 16px 0 25px 24px;
+    height: 56px;
+    .soldClass {
+      width: 58px;
+      height: 24px;
+      border-radius: 100px;
+      background-color: #2bc5a9;
+
+      span {
+        font-family: Roboto, 'sans-serif';
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: white;
+        text-transform: capitalize;
+      }
+    }
+
+    .boughtClass {
+      width: 58px;
+      height: 24px;
+      border-radius: 100px;
+      background-color: #307087;
+
+      span {
+        font-family: Roboto, 'sans-serif';
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: white;
+        text-transform: capitalize;
+      }
+    }
+    .dataset-icon-activity{
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background-color: #e6f1fc;
+    }
+    .dataset-filename{
+      text-align: left;
+      font-size: 12px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.17;
+      letter-spacing: normal;
+      color: #131415;
+      padding-top: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      white-space: nowrap;
+    }
+    .dataset-trac-price{
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.17;
+      letter-spacing: normal;
+      color: #131415;
+      padding-top: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      white-space: nowrap;
+    }
+    .form-to-user{
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      color: #131415;
+      padding-top: 6px;
+    }
+    .dataset-transaction-date-time{
+      padding-top: 5px;
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      color: #131415;
+    }
+  }
+}

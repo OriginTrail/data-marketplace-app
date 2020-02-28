@@ -1,0 +1,287 @@
+.marketplace-card-component-wrapper {
+  .jazzicon-card-style {
+    margin: 0 3px;
+    display: inline-flex;
+  }
+
+  .cards-row {
+    margin-top: 32px;
+    min-height: 300px;
+
+    .card-col {
+      padding: 5px 10px 5px 0;
+    }
+
+    .inline-div {
+      display: inline;
+    }
+
+    .marketplace-card {
+      background-color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px 0 rgba(82, 97, 115, 0.18);
+      min-height: 248px;
+
+      .tags {
+        position: absolute;
+        bottom: 0;
+      }
+
+      .space-left {
+        float: right;
+        margin-top: 6px;
+      }
+
+      .card-img {
+        border-radius: 4px;
+        border: 1px solid #dfdfdf;
+      }
+
+      .data-img-wrapper {
+        position: relative;
+      }
+
+      .preview-data:hover {
+        .hover-overlay {
+          position: absolute;
+          top: 0px;
+          bottom: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          background: rgba(0, 0, 0, 0.5);
+          transition: .2s all;
+
+          .prev-data {
+            color: #ffffff;
+            padding-top: 30%;
+            opacity: 1;
+          }
+        }
+      }
+
+      .hover-overlay {
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.0);
+        transition: .2s all;
+        padding-top: 10%;
+
+        .prev-data {
+          color: #ffffff;
+          padding-top: 30%;
+          opacity: 0;
+        }
+      }
+
+
+      .el-tag--info {
+        background-color: rgba(144, 147, 153, .1);
+        border-color: rgba(144, 147, 153, .2);
+        height: 19px;
+        line-height: 19px;
+        margin-right: 5px;
+        color: #136bc8;
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+      }
+
+      .card-headline {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #131415;
+      }
+
+      .issuer {
+        opacity: 0.5;
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #131415;
+      }
+
+      .issuer-identity {
+        font-family: Roboto;
+        font-size: 11px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #131415;
+
+        div:first-child {
+          // jazzicon
+          display: inline;
+          position: relative;
+          top: 2px;
+          margin-right: 5px;
+        }
+      }
+
+      .description {
+        opacity: 0.5;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        color: #131415;
+        display: inline;
+        padding-right: 3px;
+      }
+
+      .btn-col {
+        margin-left: 5px;
+
+        .market-card-btn {
+          border-radius: 4px;
+          background-color: #136bc8;
+          color: #ffffff;
+          border: 1px solid #136bc8;
+          font-size: 12px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          height: 27px;
+          width: 100%;
+        }
+      }
+
+      .main-info-row {
+        padding: 16px 16px 0 16px;
+        margin-bottom: 12px;
+      }
+
+      .btn-wrapper {
+        display: inline;
+      }
+
+      .market-card-footer {
+        border-top: 1px solid #dfdfdf;
+        padding: 12px 16px 0 16px;
+        display: flex;
+        @media only screen and (max-width: 767px) {
+          .visible-xs {
+            display: inline;
+          }
+          .btn-col {
+            padding: 0;
+            margin-left: -8px;
+            margin-top: 10px;
+          }
+          .market-card-btn {
+            width: 80%;
+          }
+        }
+
+        @media only screen and (max-width: 460px) {
+          .market-card-btn {
+            width: 65%;
+          }
+        }
+
+        @media only screen and (min-width: 767px) {
+          .visible-xs {
+            display: none;
+          }
+        }
+
+        @media only screen and (max-width: 767px) {
+          .large-visible {
+            display: none;
+          }
+        }
+
+        @media only screen and (min-width: 767px) {
+          .large-visible {
+            display: inline-block;
+          }
+        }
+
+
+        .token-ammount {
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: normal;
+          text-align: right;
+          color: #131415;
+        }
+
+        .trac {
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: normal;
+          text-align: right;
+          color: #131415;
+        }
+
+        .check-link {
+          padding: 3px;
+          background-color: #f6f6f6;
+          border: 1px solid #dfdfdf;
+          margin-right: 6px;
+          top: 2px;
+          position: relative;
+          border-radius: 4px;
+
+          img {
+            margin-bottom: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  .loading-fetch-price {
+    display: flex;
+    justify-content: start;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-left: 10px;
+  }
+
+  .fetch-price-btn {
+    padding: 0;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    height: 27px;
+    width: 100%;
+  }
+}
