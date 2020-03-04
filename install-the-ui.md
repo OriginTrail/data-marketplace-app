@@ -15,7 +15,7 @@ git clone https://github.com/OriginTrail/data-marketplace-app.git
 ```
 
 #### Step 2: 
-- Enter "..." folder.
+- Enter "data-marketplace-app" folder.
 
 - When inside the folder please run the following command and wait for the process to be finished: 
 
