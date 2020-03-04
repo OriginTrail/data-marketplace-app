@@ -11,7 +11,7 @@ Food Data Market is an inclusive marketplace fostering new economic models for s
 - Clone the project to your local machine by running: 
 
 ```
-https://github.com/OriginTrail/data-marketplace-app.git
+git clone https://github.com/OriginTrail/data-marketplace-app.git
 ```
 
 #### Step 2: 
