@@ -103,7 +103,8 @@
                     '#1598F2', // lightning blue
                     '#2465E1', // sail blue
                     '#F19E02' // gold
-                ]
+                ],
+                processed: 0
             }
         },
         created() {
@@ -148,6 +149,8 @@
                             row.address = row.seller_erc_id;
                         })
 
+                        this.processed++;
+
                     } else {
                         this.$notify({
                             message: 'Something went wrong with loading of data, check connection with node!',
@@ -168,6 +171,8 @@
                             this.activityData.push(row);
                             row.address = row.buyer_erc_id
                         })
+
+                        this.processed++;
 
                     } else {
                         this.$notify({
@@ -274,6 +279,13 @@
                         break;
                 }
                 return `${day}.${month}.${year} at ${hour}:${minute}`
+            }
+        },
+        watch: {
+            processed(val) {
+                if(val === 2) {
+                    EventBus.$emit('calculate-app-height');
+                }
             }
         }
     }

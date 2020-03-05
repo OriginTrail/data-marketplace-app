@@ -612,7 +612,7 @@
 
                     console.log(main_container_height, window.innerHeight);
 
-                    if (window.innerHeight > main_container_height + 100) {
+                    if (window.innerHeight > main_container_height) {
                         $('#app').css("height", "100vh");
                         $('.footerComponent').css({
                             "position": "absolute",
