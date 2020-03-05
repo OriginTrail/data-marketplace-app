@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <h1>Withdraw TRAC from Your Node<el-popover
+    <h1>Withdraw TRAC from Your Node <el-popover
       placement="top-start"
       title="Withdraw TRAC"
       width="300"
@@ -111,6 +111,8 @@ export default {
   }
   .houston-btn{
     color: #ffffff;
+    margin-right:24px;
+    margin-top:90px;
   }
   .houston-btn:hover{
     color: #ffffff;

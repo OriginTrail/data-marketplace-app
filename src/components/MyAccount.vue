@@ -9,7 +9,7 @@
             <el-row class="info-wrapp">
                 <el-col :lg="12" :md="24" class="padd-right">
                     <h3 class="margin-10 text-left small-headline">General</h3>
-                    <div class="el-row special-row margin-30">
+                    <div class="el-row special-row ">
                         <el-col :lg="6" :md="12" class="first-radius">
                             <div class="el-col">
                                 <span class="little-span">Network</span>
@@ -21,7 +21,7 @@
                             </div>
                         </el-col>
                     </div>
-                    <div class="el-row special-row margin-30">
+                    <div class="el-row special-row ">
                         <el-col :lg="6" :md="12" class="first-radius">
                             <div class="el-col">
                                 <span class="little-span">Node ID</span>
@@ -33,7 +33,7 @@
                             </div>
                         </el-col>
                     </div>
-                    <div class="el-row special-row margin-30">
+                    <div class="el-row special-row ">
                         <el-col :lg="6" :md="12" class="first-radius">
                             <div class="el-col ">
                                 <span class="little-span">Management wallet ID</span>
@@ -45,7 +45,7 @@
                             </div>
                         </el-col>
                     </div>
-                    <div class="el-row special-row margin-30">
+                    <div class="el-row special-row ">
                         <el-col :lg="6" :md="12" class="first-radius">
                             <div class="el-col ">
                                 <span class="little-span">Operational wallet ID</span>
@@ -58,7 +58,7 @@
                             </div>
                         </el-col>
                     </div>
-                    <div class="el-row special-row margin-30">
+                    <div class="el-row special-row ">
                         <el-col :lg="6" :md="12" class="first-radius">
                             <div class="el-col ">
                                 <span class="little-span">ERC 725 identity</span>
@@ -452,6 +452,9 @@
 
     @import "../scss/my_account";
 
+    .special-row{
+        margin-bottom:22px;
+    }
 
     .small-headline {
         font-weight: 800;
@@ -465,7 +468,7 @@
     }
 
     .padd-right {
-        padding-right: 30px;
+        padding-right: 50px;
     }
 
     .line-breaker {
@@ -594,7 +597,7 @@
     }
 
     .field {
-        padding: 7px 10px;
+        padding: 20px;
         font-size: 16px;
         font-weight: bold;
         font-style: normal;
