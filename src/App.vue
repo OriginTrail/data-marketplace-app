@@ -199,7 +199,7 @@
                 </el-row>
                 <div>
                     <el-container>
-                        <el-aside width="30%" v-if="!mobileTrue">
+                        <el-aside class="asideClass" width="30%" v-if="!mobileTrue">
                             <balances
                                     :profile-storage-address="profile_storage_address"
                                     :profile-address="profile_address"
@@ -622,7 +622,7 @@
                             "visibility": "visible",
                         });
 
-                        if(this.activeIndex2 === 6) {
+                        if (this.activeIndex2 === 6) {
                             $('#app').css("height", "100%");
                             $('.footerComponent').css({
                                 "position": "relative",
@@ -634,7 +634,6 @@
                         }
 
                     } else if (window.innerHeight < main_container_height) {
-
 
 
                         $('#app').css("height", "100%");
@@ -801,6 +800,16 @@
 
     }
 
+    .el-form-item {
+        margin-bottom: 15px;
+        margin-top: 25px;
+    }
+
+    .deposit-trac .houston-btn {
+        position: absolute;
+        bottom: 28px;
+    }
+
     .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
         outline: 0;
         color: #2a9fd8;
@@ -819,10 +828,13 @@
         border: solid 1px var(--grey_200A);
         text-align: left;
         border: 1px solid #dfdfdf;
-        min-height: 456px;
+        min-height: 486px;
 
         .el-icon-info {
             font-size: 17px;
+            top: -4px;
+            left: 6px;
+            position: relative;
         }
     }
 
@@ -846,6 +858,10 @@
     .el-main {
         height: 100%;
     }
+    .el-input-number__decrease, .el-input-number__increase{
+        background: none;
+    }
+
 
     .token-management-wrapper {
         width: 100%;
@@ -867,6 +883,10 @@
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    .asideClass {
+        margin-top: 35px;
     }
 
     .el-col {
