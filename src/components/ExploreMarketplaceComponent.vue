@@ -97,6 +97,8 @@
 
                         this.datasetsData = response.data;
 
+                        EventBus.$emit('calculate-app-height');
+
                         this.datasetsData.forEach((row, index) => {
 
                             let object = {};

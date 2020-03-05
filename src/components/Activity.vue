@@ -244,6 +244,7 @@
             },
             sortActivitesByDate() {
                 this.activityData.sort((a, b) => b.timestamp - a.timestamp)
+                EventBus.$emit('calculate-app-height');
             },
             updateDatasetRow(dataset_index, price) {
                     this.activityData[dataset_index].price = price / 1000000000000000000;

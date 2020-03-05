@@ -312,6 +312,9 @@
                     if (response.data) {
 
                         this.datasetsData = response.data;
+
+                        EventBus.$emit('calculate-app-height');
+
                     } else {
 
                         this.$notify({
