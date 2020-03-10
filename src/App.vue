@@ -140,7 +140,7 @@
                                     <el-input
                                             spellcheck="false"
                                             :disabled="selected_network === ''"
-                                            type="textarea"
+                                            type="password"
                                             :autosize="{ minRows: 1, maxRows: 2}"
                                             resize="none"
                                             v-model="houston_pass"></el-input>
@@ -598,55 +598,7 @@
                 this.calculateAppHeight();
                 this.activeIndex2 = key;
             },
-            calculateAppHeight() {
-                $('.footerComponent').css({
-                    "visibility": "visible",
-                });
-
-                setTimeout(() => {
-
-                    console.log('calucalted');
-
-                    let main_container_height = $('#main-container').height();
-                    let token_management_wrapper = $('.token-management-wrapper').height();
-
-                    console.log(main_container_height, window.innerHeight);
-
-                    if (window.innerHeight > main_container_height + 100) {
-                        $('#app').css("height", "100vh");
-                        $('.footerComponent').css({
-                            "position": "absolute",
-                            "bottom": "30px"
-                        });
-                        $('.footerComponent').css({
-                            "visibility": "visible",
-                        });
-
-                        if (this.activeIndex2 === 6) {
-                            $('#app').css("height", "100%");
-                            $('.footerComponent').css({
-                                "position": "relative",
-                            });
-
-                            $('.footerComponent').css({
-                                "visibility": "visible",
-                            });
-                        }
-
-                    } else if (window.innerHeight < main_container_height) {
-
-
-                        $('#app').css("height", "100%");
-                        $('.footerComponent').css({
-                            "position": "relative",
-                        });
-
-                        $('.footerComponent').css({
-                            "visibility": "visible",
-                        });
-                    }
-                }, 100);
-            },
+            calculateAppHeight() {},
             nodeApiInfo() {
                 let object = {};
                 object.ot_object_id = 'urn:ot:object:actor:id:Nesium';
