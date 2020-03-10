@@ -198,7 +198,7 @@
                     method: 'get',
                     url: `https://${window.node_address}:8900/api/latest/network/private_data/purchase/result/${dataset.handler_id}`,
                 }).then(response => {
-
+                    window.EventBus.$emit('purchaseStatus');
                     if (response.data && response.data.status === 'REQUESTED') {
 
                         setTimeout(() => {

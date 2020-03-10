@@ -7,10 +7,28 @@ $roboto: 'Roboto', sans-serif;
   h1 {
     margin-bottom: 90px;
   }
+  .mini-logo{
+    margin-right:5px;
+    margin-bottom: 1px;
+    cursor:pointer;
+  }
+  .bold-text{
+    font-weight: bold;
+  }
+  .not{
+    pointer-events: none;
+  }
+
+  .download{
+    cursor:pointer;
+  }
 
   .el-table .cell {
     display: flex;
     align-items: center;
+  }
+  .el-button{
+    padding: 5px 13px;
   }
 
   .purchases-content-wrapper {
