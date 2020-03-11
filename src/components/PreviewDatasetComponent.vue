@@ -7,10 +7,10 @@
 
             <!-- DATASET INFO -->
             <el-row>
-                <el-col :span="10" class="dataset-img-col">
+                <el-col :span="10" id='dataforuse' class="dataset-img-col">
                     <img class="dataset-img" :src="generateImage()" alt="">
                 </el-col>
-                <el-col :span="14" class="dataset-info text-left">
+                <el-col :span="14" id="dataset-info" class="dataset-info text-left">
                     <div class="top-info-wrapp">
                         <h3>{{ (datasetData.dataset.name === '') ? 'Name not provided' : datasetData.dataset.name }}</h3>
                         <span class="gray">Issuer:</span>
@@ -93,6 +93,9 @@
 </template>
 
 <script>
+
+    import $ from 'jquery';
+
     export default {
         name: "PreviewDatasetComponent",
         props: ['dataset', 'index'],
@@ -397,6 +400,9 @@
             }
         },
         mounted() {
+
+           console.log($("#dataforuse"))
+
 
             this.getPriceForTracInUsd();
 

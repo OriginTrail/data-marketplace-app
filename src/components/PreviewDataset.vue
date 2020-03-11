@@ -29,6 +29,11 @@
 
 <style scoped>
 
+    pre {
+
+        margin-bottom: 0px !important;
+    }
+
     .custom-box {
         min-height: 489px;
     }
