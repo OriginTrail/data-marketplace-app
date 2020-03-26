@@ -116,7 +116,7 @@
         },
         methods: {
             verifyIntegrity(dataset) {
-                window.open(`https://explorer.origintrail.io/data-sets/?query=${this.datasetData.ot_objects[0]}&type=id&externalRequest=true&network=marketplace`, '_blank');
+                window.open(`https://explorer.origintrail.io/data-sets/?query=${this.datasetData.ot_objects[0]}&type=id&externalRequest=true&network=marketplacetestnet`, '_blank');
             },
             getPriceForTracInUsd(){
                 axios({
