@@ -211,7 +211,7 @@ export default {
     },
   },
   mounted() {
-    console.log('pozvana u balances');
+
     this.getAllBalances();
     window.EventBus.$on('loading-done', () => {
       this.getAllBalances();
@@ -225,9 +225,7 @@ export default {
   },
   methods: {
     getAllBalances() {
-      console.log('pozvana get balances');
 
-      console.log(this.operationalWallet, 'operational wallet');
 
       window.eth.getBalance(this.operationalWallet)
         .then((result) => {
@@ -268,7 +266,7 @@ export default {
         .at(this.profileAddress);
 
       profileStorageContract.getStake(this.erc725).then((result) => {
-        console.log(result, 'rezultat get Stake');
+
 
         this.total_trac = new window.Eth.BN(result[0]);
       });
