@@ -172,7 +172,7 @@
             verifyIntegrity(dataset) {
                 console.log(dataset, 'datast');
 
-                window.open(`https://explorer.origintrail.io/data-sets/?query=${dataset.ot_json_object_id}&type=id&externalRequest=true&network=testnetmarketplace`, '_blank');
+                window.open(`https://explorer.origintrail.io/data-sets/?query=${dataset.ot_json_object_id}&type=id&externalRequest=true&network=marketplacetestnet`, '_blank');
             },
             fetchPurchasesData() {
                 axios({
