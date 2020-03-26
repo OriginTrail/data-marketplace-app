@@ -12,7 +12,7 @@
                         class="blue-button"
                         size="mini"
                         @click="uploadDatasetOpen">
-                    PUT DATASET ON SALE
+                    <img class='cloud-logo' src="../assets/cloud-upload.svg"/> PUT DATASET ON SALE
                 </el-button>
             </div>
 
@@ -31,7 +31,7 @@
                                 property="dataset_name">
                             <template slot-scope="scope">
                                 <img class="dataset-icon" src="~@/assets/id-ic-dataset.svg" alt="">
-                                <span class="black-text">
+                                <span class="black-text" style="font-weight: bold;">
                                     {{ (scope.row.dataset.name === '') ? 'Name not provided' : scope.row.dataset.name }}
                                     <br>
                                     <span class="time">{{scope.row.timestamp}}</span>
@@ -47,7 +47,9 @@
                         </el-table-column>
                         <el-table-column
                                 label="Type"
-                                property="type">
+                                property="type"
+                                width="140px"
+                        >
                             <template slot-scope="scope">
                             <span class="filetype-badge">
                                 {{ (scope.row.dataset.tags.length === 0) ? '.JSON' :  scope.row.dataset.tags[0] }}
@@ -271,11 +273,12 @@
 
                         this.$notify({
                             message: 'Selling is paused!',
-                            type: 'success'
+                            type: 'success',
+                            duration: 0
                         });
 
                         this.datasetsData.forEach((datasetTable, index) => {
-                            if(datasetTable.dataset.id === dataset.dataset.id) {
+                            if (datasetTable.dataset.id === dataset.dataset.id) {
                                 datasetTable.ot_objects[0].price = -1 * 1000000000000000000;
                             }
                         });
@@ -368,6 +371,15 @@
     }
 </script>
 
-<style scoped>
+<style>
+
+
+    .el-notification .el-icon-success {
+        padding-top: 8px !important;
+    }
+
+    .cloud-logo {
+        margin-right: 8px;
+    }
 
 </style>

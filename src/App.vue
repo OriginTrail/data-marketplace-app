@@ -140,7 +140,7 @@
                                     <el-input
                                             spellcheck="false"
                                             :disabled="selected_network === ''"
-                                            type="textarea"
+                                            type="password"
                                             :autosize="{ minRows: 1, maxRows: 2}"
                                             resize="none"
                                             v-model="houston_pass"></el-input>

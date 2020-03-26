@@ -17,7 +17,7 @@
                             prop="filename">
                         <template slot-scope="scope">
                             <img class="dataset-icon" src="~@/assets/id-ic-dataset.svg" alt="">
-                                <span class="black-text">
+                            <span class="black-text bold-text">
                                     {{ (scope.row.data_set.name === '') ? 'Name not provided' : scope.row.data_set.name }}
                                     <br>
                                     <span class="time">{{scope.row.timestamp | fromTimestampToHumanReadable}}</span>
@@ -32,7 +32,8 @@
                             prop="seller_erc_id">
                         <template slot-scope="scope">
                             <div class="inline-div">
-                                <jazzicon :address="scope.row.seller_erc_id" :diameter="20" class="jazzicon-custom"></jazzicon>
+                                <jazzicon :address="scope.row.seller_erc_id" :diameter="20"
+                                          class="jazzicon-custom"></jazzicon>
                                 <span class="issuer-identity">
                                     {{trimText3(scope.row.seller_erc_id)}}
                                 </span>
@@ -41,19 +42,20 @@
                         </template>
                     </el-table-column>
 
-<!--                    <el-table-column-->
-<!--                            label="Description"-->
-<!--                            sortable-->
-<!--                            :show-overflow-tooltip="true"-->
-<!--                            prop="description">-->
-<!--                        <template slot-scope="scope">-->
-<!--                            {{scope.row.data_set.description }}-->
-<!--                        </template>-->
-<!--                    </el-table-column>-->
+                    <!--                    <el-table-column-->
+                    <!--                            label="Description"-->
+                    <!--                            sortable-->
+                    <!--                            :show-overflow-tooltip="true"-->
+                    <!--                            prop="description">-->
+                    <!--                        <template slot-scope="scope">-->
+                    <!--                            {{scope.row.data_set.description }}-->
+                    <!--                        </template>-->
+                    <!--                    </el-table-column>-->
 
                     <el-table-column
                             label="Type"
                             sortable
+                            width="180px"
                             prop="type">
                         <template slot-scope="scope">
                             <span class="filetype-badge">
@@ -62,7 +64,7 @@
                         </template>
                     </el-table-column>
                     <el-table-column
-                            width="110px"
+                            width="135px"
                             label="Price"
                             sortable
                             prop="price">
@@ -93,21 +95,19 @@
                     <el-table-column>
                         <template slot-scope="scope">
                             <div class="d-flex justify-content-around width-100">
-                                <el-button
-                                        class="margin-right-6"
-                                        round
-                                        size="mini"
-                                        @click="verifyIntegrity(scope.row)">
-                                    VERIFY INTEGRITY
-                                </el-button>
-                                <el-button
-                                        class="margin-right-6 blue-button"
-                                        round
-                                        type="primary"
-                                        size="mini"
-                                        @click="downloadDataset(scope.row)">
-                                    DOWNLOAD
-                                </el-button>
+                                <div>
+                                    <el-button
+                                            @click="verifyIntegrity(scope.row)"
+                                            size="mini"
+                                    >
+                                        <img class='mini-logo'
+                                             src="../assets/mini-logo.svg"/><span>VERIFY INTEGRITY</span>
+                                    </el-button>
+
+                                </div>
+                                <img :class="{not:scope.row.status !== 'COMPLETED'}" class="download"
+                                     @click="downloadDataset(scope.row)" src="../assets/download-icon.svg"/>
+
                             </div>
                         </template>
                     </el-table-column>
@@ -137,10 +137,15 @@
                 },
                 node_address: '',
                 datasetsData: [],
-                downloadStatusNotification : {}
+                downloadStatusNotification: {}
             }
         },
         created() {
+            window.EventBus.$on('purchaseStatus', () => {
+                console.log('went out')
+                this.fetchPurchasesData();
+
+            });
 
             this.resolveTableResponsivness();
 
@@ -148,12 +153,13 @@
         mounted() {
             EventBus.$emit('calculate-app-height');
 
+
             this.node_address = localStorage.getItem('node_address');
 
             this.fetchPurchasesData();
         },
         methods: {
-            trimText2(text){
+            trimText2(text) {
                 let length = 8;
                 let clamp = '...';
                 let node = document.createElement('div');
@@ -161,7 +167,7 @@
                 let content = node.textContent;
                 return content.length > length ? content.slice(0, length) + clamp : content;
             },
-            trimText3(text){
+            trimText3(text) {
                 let length = 15;
                 let clamp = '...';
                 let node = document.createElement('div');
@@ -180,7 +186,7 @@
                     url: `https://${window.node_address}:8900/api/latest/private_data/trading_info/PURCHASED`
                 }).then(response => {
 
-                    if(response.data) {
+                    if (response.data) {
 
                         this.datasetsData = response.data;
                     } else {
@@ -217,7 +223,7 @@
                     },
                 }).then(response => {
 
-                    if(response.data) {
+                    if (response.data) {
 
                         let export_handler = response.data.handler_id;
 
@@ -240,11 +246,11 @@
                     url: `https://${window.node_address}:8900/api/latest/export/result/${export_handler}`,
                 }).then(response => {
 
-                    if(response.data) {
+                    if (response.data) {
 
                         this.downloadStatusNotification.close();
 
-                        if(response.data.status === 'PENDING') {
+                        if (response.data.status === 'PENDING') {
                             this.checkExportHandler(export_handler);
 
                         } else if (response.data.status === 'COMPLETED') {
@@ -315,5 +321,6 @@
 
 <style lang="scss">
     @import "../scss/_my-purchases.scss";
+
 
 </style>
