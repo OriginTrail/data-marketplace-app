@@ -7,26 +7,32 @@
 
             <!-- DATASET INFO -->
             <el-row>
-                <el-col :span="10" class="dataset-img-col">
+                <el-col :span="10" id='dataforuse' class="dataset-img-col">
                     <img class="dataset-img" :src="generateImage()" alt="">
                 </el-col>
-                <el-col :span="14" class="dataset-info text-left">
+                <el-col :span="14" id="dataset-info" class="dataset-info text-left">
                     <div class="top-info-wrapp">
-                        <h3>{{ (datasetData.dataset.name === '') ? 'Name not provided' : datasetData.dataset.name }}</h3>
+                        <h3>{{ (datasetData.dataset.name === '') ? 'Name not provided' : datasetData.dataset.name
+                            }}</h3>
                         <span class="gray">Issuer:</span>
                         <div class="gray-wrapper">
                              <span class="identity"> {{ (datasetData.seller_erc_id) ? 'did:ethr:' + datasetData.seller_erc_id : 'Seller identity not provided' }}
-                        <a target="_blank" class="view-identity" :href="'https://rinkeby.etherscan.io/address/' + datasetData.seller_erc_id" v-if="datasetData.seller_erc_id">VIEW</a></span>
+                        <a target="_blank" class="view-identity"
+                           :href="'https://rinkeby.etherscan.io/address/' + datasetData.seller_erc_id"
+                           v-if="datasetData.seller_erc_id">VIEW</a></span>
                         </div>
 
-                     <span class="gray"> <p class="space"></p>On sale since: <span
-                            class="days-ago">{{ datasetData.timestamp | fromTimestampToHumanReadable}}</span></span>
+                        <span class="gray"> <p class="space"></p>On sale since: <span
+                                class="days-ago">{{ datasetData.timestamp | fromTimestampToHumanReadable}}</span></span>
                     </div>
                     <div class="description-wrapper truncate">
-                        <p class="description">{{ (datasetData.dataset.description) ? datasetData.dataset.description : ' Description not provided' }}</p>
+                        <p class="description">{{ (datasetData.dataset.description) ? datasetData.dataset.description :
+                            ' Description not provided' }}</p>
                     </div>
 
-                    <el-tag type="info" v-for="(tag, index) in datasetData.dataset.tags" :key="index">{{ (tag) ? tag : 'Tag not provided' }}</el-tag>
+                    <el-tag type="info" v-for="(tag, index) in datasetData.dataset.tags" :key="index">{{ (tag) ? tag :
+                        'Tag not provided' }}
+                    </el-tag>
 
                     <el-row class="verify-wrapper">
                         <el-col :span="24">
@@ -46,10 +52,12 @@
 
                             <span class="trac-amount" v-else>{{ datasetPrice + ' ' }}</span>
                             <span class="trac">TRAC</span>
-                            <p class="trac-in-usd" v-if="tracPriceInUsdConverted !== ''"><span>~ </span>{{ tracPriceInUsdConverted.toFixed(3) }} <span class="usd">USD</span></p>
+                            <p class="trac-in-usd" v-if="tracPriceInUsdConverted !== ''"><span>~ </span>{{
+                                tracPriceInUsdConverted.toFixed(3) }} <span class="usd">USD</span></p>
                         </el-col>
                     </el-row>
-                    <el-button class="market-card-btn-absolute" type="primary" @click="innerVisible= true" :disabled="datasetPrice === ''">INITIATE
+                    <el-button class="market-card-btn-absolute" type="primary" @click="innerVisible= true"
+                               :disabled="datasetPrice === ''">INITIATE
                         PURCHASE
                     </el-button>
                 </el-col>
@@ -65,13 +73,16 @@
                     :close-on-click-modal="closeOnClick"
                     append-to-body>
                 <h3 class="dialog-h3">Are you sure?</h3>
-                <p class="purchase-msg">You are about to purchase dataset "<span>{{ (datasetData.dataset.name === '') ? 'Name not provided' : datasetData.dataset.name }}</span>" for {{datasetPrice}} TRAC</p>
+                <p class="purchase-msg">You are about to purchase dataset "<span>{{ (datasetData.dataset.name === '') ? 'Name not provided' : datasetData.dataset.name }}</span>"
+                    for {{datasetPrice}} TRAC</p>
                 <elrow>
                     <el-col :span="10">
                         <el-button @click="closePreview" class="cancel-btn">CANCEL</el-button>
                     </el-col>
                     <el-col :span="14">
-                        <el-button class="market-card-btn blue-button no-margin" type="primary" @click="confirmPurchase(datasetData)">CONFIRM PURCHASE</el-button>
+                        <el-button class="market-card-btn blue-button no-margin" type="primary"
+                                   @click="confirmPurchase(datasetData)">CONFIRM PURCHASE
+                        </el-button>
                     </el-col>
                 </elrow>
             </el-dialog>
@@ -85,14 +96,20 @@
                     append-to-body
                     class="go-to-purchases-dialog">
                 <h3 class="dialog-h3">Purchase Initiated.</h3>
-                <p>Please be patient, the purchase process can last several minutes depending on the status of the networks.</p>
-                <el-button class="market-card-btn blue-button" type="primary" @click="loadMyPurchases()">GO TO MY PURCHASES</el-button>
+                <p>Please be patient, the purchase process can last several minutes depending on the status of the
+                    networks.</p>
+                <el-button class="market-card-btn blue-button" type="primary" @click="loadMyPurchases()">GO TO MY
+                    PURCHASES
+                </el-button>
             </el-dialog>
         </el-dialog>
     </div>
 </template>
 
 <script>
+
+    import $ from 'jquery';
+
     export default {
         name: "PreviewDatasetComponent",
         props: ['dataset', 'index'],
@@ -106,8 +123,8 @@
                 purchaseInitiated: false,
                 closeOnClick: false,
                 tagsImages: {},
-                tracPriceInUsd:'',
-                tracPriceInUsdConverted:'',
+                tracPriceInUsd: '',
+                tracPriceInUsdConverted: '',
                 purchaseStatus: {}
             };
         },
@@ -116,15 +133,15 @@
         },
         methods: {
             verifyIntegrity(dataset) {
-                window.open(`https://explorer.origintrail.io/data-sets/?query=${this.datasetData.ot_objects[0]}&type=id&externalRequest=true&network=marketplace`, '_blank');
+                window.open(`https://explorer.origintrail.io/data-sets/?query=${this.datasetData.ot_objects[0]}&type=id&externalRequest=true&network=marketplacetestnet`, '_blank');
             },
-            getPriceForTracInUsd(){
+            getPriceForTracInUsd() {
                 axios({
                     method: 'get',
                     url: `https://api.coingecko.com/api/v3/simple/price?ids=origintrail&vs_currencies=usd`,
                 }).then(response => {
                     this.tracPriceInUsd = response.data.origintrail.usd;
-                }).catch((error)=>{
+                }).catch((error) => {
 
                 })
             },
@@ -136,12 +153,12 @@
                     this.tracPriceInUsd = response.data.origintrail.usd;
 
                     this.tracPriceInUsdConverted = parseFloat(datasetPrice) * this.tracPriceInUsd;
-                }).catch((error)=>{
+                }).catch((error) => {
 
                 })
             },
             generateImage() {
-                if(this.datasetData.dataset.tags.length !== 0) {
+                if (this.datasetData.dataset.tags.length !== 0) {
                     return 'images/' + this.tagsImages[this.datasetData.dataset.tags[0]];
                 } else {
                     return 'images/' + this.tagsImages['Other'];
@@ -198,7 +215,7 @@
                     method: 'get',
                     url: `https://${window.node_address}:8900/api/latest/network/private_data/purchase/result/${dataset.handler_id}`,
                 }).then(response => {
-
+                    window.EventBus.$emit('purchaseStatus');
                     if (response.data && response.data.status === 'REQUESTED') {
 
                         setTimeout(() => {
@@ -398,6 +415,16 @@
         },
         mounted() {
 
+            //dynamically set height of preview image based on height
+            this.$nextTick(() => {
+
+                let height = $("#dataset-info").height()
+                console.log(height)
+                $('#dataforuse').height(height)
+
+            })
+
+
             this.getPriceForTracInUsd();
 
             this.datasetData = this.dataset;
@@ -421,12 +448,12 @@
         },
         watch: {
             datasetPrice() {
-                if(this.datasetPrice !== ''){
+                if (this.datasetPrice !== '') {
                     this.tracPriceInUsdConverted = parseFloat(this.datasetPrice) * this.tracPriceInUsd;
                 }
             }
         },
-        filters:{
+        filters: {
             fromTimestampToHumanReadable(timestamp) {
                 let date = new Date(timestamp);
 

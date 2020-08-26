@@ -394,9 +394,12 @@ export default {
         letter-spacing: normal;
         color: #131415;
         margin-bottom: 20px;
+        margin-top:50px;
     }
 </style>
 <style scoped>
+
+
     .formula-img {
         margin-top: 20px;
     }

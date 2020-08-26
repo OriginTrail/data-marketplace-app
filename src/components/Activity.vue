@@ -103,14 +103,14 @@
                     '#1598F2', // lightning blue
                     '#2465E1', // sail blue
                     '#F19E02' // gold
-                ],
-                processed: 0
+                ]
             }
         },
         created() {
             this.loading = true;
 
             this.node_address = localStorage.getItem('node_address');
+            console.log('nesto');
             this.fetchPurchasedData();
             this.fetchSoldData();
             this.sortActivitesByDate();
@@ -120,6 +120,7 @@
 
         },
         mounted() {
+
         },
         methods: {
             fromTimestampToHumanReadableMethod(value) {
@@ -138,18 +139,18 @@
                 return typeof int === 'number' ? int.toString() : int;
             },
             fetchPurchasedData() {
+                console.log('entered')
                 axios({
                     method: 'get',
                     url: `https://${window.node_address}:8900/api/latest/private_data/trading_info/PURCHASED`
                 }).then(response => {
                     if (response.data) {
+                        console.log(response.data,'purchased')
                         response.data.forEach((row, index) => {
                             row.purchase = 'bought';
                             this.activityData.push(row);
                             row.address = row.seller_erc_id;
                         })
-
-                        this.processed++;
 
                     } else {
                         this.$notify({
@@ -165,14 +166,15 @@
                     method: 'get',
                     url: `https://${window.node_address}:8900/api/latest/private_data/trading_info/SOLD`
                 }).then(response => {
+                    console.log(response.data,'sold')
                     if (response.data) {
+
                         response.data.forEach((row, index) => {
+
                             row.purchase = 'sold';
                             this.activityData.push(row);
                             row.address = row.buyer_erc_id
                         })
-
-                        this.processed++;
 
                     } else {
                         this.$notify({
@@ -249,7 +251,6 @@
             },
             sortActivitesByDate() {
                 this.activityData.sort((a, b) => b.timestamp - a.timestamp)
-                EventBus.$emit('calculate-app-height');
             },
             updateDatasetRow(dataset_index, price) {
                     this.activityData[dataset_index].price = price / 1000000000000000000;
@@ -279,13 +280,6 @@
                         break;
                 }
                 return `${day}.${month}.${year} at ${hour}:${minute}`
-            }
-        },
-        watch: {
-            processed(val) {
-                if(val === 2) {
-                    EventBus.$emit('calculate-app-height');
-                }
             }
         }
     }
